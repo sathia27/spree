@@ -59,7 +59,7 @@ module Spree
 
       initializer "spree.register.payment_methods" do |app|
         app.config.spree.payment_methods = [
-            Spree::Gateway::Ebs,
+            Spree::PaymentMethod::Ebs,
             Spree::Gateway::Bogus,
             Spree::PaymentMethod::Check ]
       end
