@@ -10,7 +10,7 @@ class Spree::UsersController < Spree::BaseController
   def create
     @user = Spree::User.new(params[:user])
     if @user.save
-
+      @user.send_confirmation_instructions
       if current_order
         current_order.associate_user!(@user)
         session[:guest_token] = nil
